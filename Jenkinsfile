@@ -19,7 +19,7 @@ pipeline {
                     ls -la
                 '''
             }
-        }
+        }̊
         stage ('Test'){
             agent {
                 docker {
@@ -28,9 +28,10 @@ pipeline {
                 }
             }
             steps{
-                 echo "Test Stage"
-                 sh 'test -f build/index.html'
-                 sh 'npm test'
+                 sh '''
+                 test -f build/index.html
+                 npm test
+                 '''
             }  
         }
     }
